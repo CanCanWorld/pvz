@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmadgjbs6fjyt"]
+
+[ext_resource type="Texture2D" uid="uid://b1pwcg5mq46is" path="res://assets/good/sun_shop.png" id="1_a7a6p"]
+[ext_resource type="Script" path="res://src/sun_shop/sun_shop.gd" id="1_dw7tq"]
+
+[node name="sun_shop" type="Node2D"]
+script = ExtResource("1_dw7tq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(460.25, 47.75)
+scale = Vector2(0.98964, 0.994382)
+texture = ExtResource("1_a7a6p")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(113, 47)

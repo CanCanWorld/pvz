@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3lqyo5m2t0ko"]
+
+[ext_resource type="Script" path="res://src/card/card.gd" id="1_oqsnb"]
+[ext_resource type="Texture2D" uid="uid://dmwm64ideywks" path="res://assets/card/card.png" id="2_ag7bm"]
+[ext_resource type="PackedScene" uid="uid://bgq0f6devxwdy" path="res://src/plants_anim/plants_anim.tscn" id="3_g0qle"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euvt2"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndkft"]
+bg_color = Color(0, 0, 0, 0.756863)
+
+[node name="card" type="Node2D"]
+script = ExtResource("1_oqsnb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ag7bm")
+
+[node name="plants_anim" parent="." instance=ExtResource("3_g0qle")]
+position = Vector2(3.8147e-06, -5)
+scale = Vector2(0.504597, 0.504597)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -24.0
+offset_top = -35.0
+offset_right = 25.0
+offset_bottom = 34.0
+theme_override_styles/background = SubResource("StyleBoxFlat_euvt2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ndkft")
+step = 1.0
+value = 100.0
+fill_mode = 2
+show_percentage = false
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -34.0
+offset_top = 18.0
+offset_right = 6.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "50"
+horizontal_alignment = 2
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -25.0
+offset_top = -35.0
+offset_right = 25.0
+offset_bottom = 35.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

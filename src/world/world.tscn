@@ -1,10 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://dq0cg2s15jjva"]
+[gd_scene load_steps=4 format=3 uid="uid://dq0cg2s15jjva"]
 
 [ext_resource type="Texture2D" uid="uid://rebun15i2epu" path="res://assets/map/map1.jpg" id="1_7uyh3"]
+[ext_resource type="PackedScene" uid="uid://bmadgjbs6fjyt" path="res://src/sun_shop/sun_shop.tscn" id="2_ficav"]
+[ext_resource type="PackedScene" uid="uid://4nbmrly7x2b1" path="res://src/map_set/map_set.tscn" id="3_a6pf4"]
 
 [node name="world" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(800.5, 323)
-scale = Vector2(2.17001, 2.025)
+[node name="map" type="Sprite2D" parent="."]
+position = Vector2(683, 346)
+scale = Vector2(1.98929, 1.8625)
 texture = ExtResource("1_7uyh3")
+
+[node name="sun_shop" parent="." instance=ExtResource("2_ficav")]
+position = Vector2(21, -2)
+
+[node name="map_set" parent="." instance=ExtResource("3_a6pf4")]
+position = Vector2(248, 180)
+
+[node name="map_set2" parent="." instance=ExtResource("3_a6pf4")]
+position = Vector2(248, 272)
+
+[node name="map_set3" parent="." instance=ExtResource("3_a6pf4")]
+position = Vector2(248, 368)
+
+[node name="map_set4" parent="." instance=ExtResource("3_a6pf4")]
+position = Vector2(248, 465)
+
+[node name="map_set5" parent="." instance=ExtResource("3_a6pf4")]
+position = Vector2(248, 565)
