@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh7hx28wgme5r"]
+
+[ext_resource type="Texture2D" uid="uid://bmet1oj0ds4hm" path="res://assets/cursor/cursor.png" id="1_j1ngw"]
+[ext_resource type="Script" path="res://src/mouse/mouse.gd" id="2_xyd50"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ewk51"]
+radius = 22.9676
+
+[node name="mouse" type="CharacterBody2D"]
+z_index = 99
+scale = Vector2(0.348317, 0.348317)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("2_xyd50")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(51.0812, 51.0812)
+scale = Vector2(0.771906, 0.771906)
+texture = ExtResource("1_j1ngw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(31.5804, 31.5804)
+shape = SubResource("CircleShape2D_ewk51")

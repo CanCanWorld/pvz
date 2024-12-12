@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/map_set/map_set.gd" id="1_kpmd1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aupjq"]
-size = Vector2(21.1538, 21.6346)
+size = Vector2(12.0192, 14.4231)
 
 [node name="map_set" type="Node2D"]
 script = ExtResource("1_kpmd1")
@@ -12,11 +12,11 @@ script = ExtResource("1_kpmd1")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(4.16, 4.16)
 shape = SubResource("RectangleShape2D_aupjq")
 
-[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
-[connection signal="area_shape_exited" from="Area2D" to="." method="_on_area_2d_area_shape_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

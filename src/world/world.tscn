@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dq0cg2s15jjva"]
+[gd_scene load_steps=7 format=3 uid="uid://dq0cg2s15jjva"]
 
 [ext_resource type="Texture2D" uid="uid://rebun15i2epu" path="res://assets/map/map1.jpg" id="1_7uyh3"]
+[ext_resource type="Script" path="res://src/world/world.gd" id="1_xuu57"]
 [ext_resource type="PackedScene" uid="uid://bmadgjbs6fjyt" path="res://src/sun_shop/sun_shop.tscn" id="2_ficav"]
 [ext_resource type="PackedScene" uid="uid://4nbmrly7x2b1" path="res://src/map_set/map_set.tscn" id="3_a6pf4"]
+[ext_resource type="PackedScene" uid="uid://dh7hx28wgme5r" path="res://src/mouse/mouse.tscn" id="4_5f1wp"]
+[ext_resource type="PackedScene" uid="uid://ckb0uimtne1md" path="res://src/zombie/zombie.tscn" id="6_j5aa5"]
 
 [node name="world" type="Node2D"]
+script = ExtResource("1_xuu57")
 
 [node name="map" type="Sprite2D" parent="."]
 position = Vector2(683, 346)
@@ -14,17 +18,144 @@ texture = ExtResource("1_7uyh3")
 [node name="sun_shop" parent="." instance=ExtResource("2_ficav")]
 position = Vector2(21, -2)
 
-[node name="map_set" parent="." instance=ExtResource("3_a6pf4")]
+[node name="map_set" type="Node2D" parent="."]
+
+[node name="map_set" parent="map_set" instance=ExtResource("3_a6pf4")]
 position = Vector2(248, 180)
 
-[node name="map_set2" parent="." instance=ExtResource("3_a6pf4")]
+[node name="map_set2" parent="map_set" instance=ExtResource("3_a6pf4")]
 position = Vector2(248, 272)
 
-[node name="map_set3" parent="." instance=ExtResource("3_a6pf4")]
+[node name="map_set3" parent="map_set" instance=ExtResource("3_a6pf4")]
 position = Vector2(248, 368)
 
-[node name="map_set4" parent="." instance=ExtResource("3_a6pf4")]
+[node name="map_set4" parent="map_set" instance=ExtResource("3_a6pf4")]
 position = Vector2(248, 465)
 
-[node name="map_set5" parent="." instance=ExtResource("3_a6pf4")]
+[node name="map_set5" parent="map_set" instance=ExtResource("3_a6pf4")]
 position = Vector2(248, 565)
+
+[node name="map_set6" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(337, 565)
+
+[node name="map_set14" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(337, 465)
+
+[node name="map_set15" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(337, 368)
+
+[node name="map_set16" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(337, 272)
+
+[node name="map_set17" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(337, 180)
+
+[node name="map_set18" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(422, 180)
+
+[node name="map_set19" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(512, 180)
+
+[node name="map_set20" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(598, 180)
+
+[node name="map_set21" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(682, 180)
+
+[node name="map_set22" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(762, 180)
+
+[node name="map_set23" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(851, 180)
+
+[node name="map_set24" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(935, 180)
+
+[node name="map_set25" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(935, 272)
+
+[node name="map_set26" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(935, 368)
+
+[node name="map_set27" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(935, 465)
+
+[node name="map_set28" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(851, 465)
+
+[node name="map_set29" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(762, 465)
+
+[node name="map_set30" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(682, 465)
+
+[node name="map_set31" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(598, 465)
+
+[node name="map_set32" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(512, 465)
+
+[node name="map_set33" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(422, 465)
+
+[node name="map_set34" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(422, 368)
+
+[node name="map_set35" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(422, 272)
+
+[node name="map_set36" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(512, 272)
+
+[node name="map_set37" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(598, 272)
+
+[node name="map_set38" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(682, 272)
+
+[node name="map_set39" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(762, 272)
+
+[node name="map_set40" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(851, 272)
+
+[node name="map_set41" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(851, 368)
+
+[node name="map_set42" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(762, 368)
+
+[node name="map_set43" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(682, 368)
+
+[node name="map_set44" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(598, 368)
+
+[node name="map_set45" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(512, 368)
+
+[node name="map_set7" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(422, 565)
+
+[node name="map_set8" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(512, 565)
+
+[node name="map_set9" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(598, 565)
+
+[node name="map_set10" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(682, 565)
+
+[node name="map_set11" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(762, 565)
+
+[node name="map_set12" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(851, 565)
+
+[node name="map_set13" parent="map_set" instance=ExtResource("3_a6pf4")]
+position = Vector2(945, 565)
+
+[node name="mouse" parent="." instance=ExtResource("4_5f1wp")]
+
+[node name="zombie" parent="." instance=ExtResource("6_j5aa5")]
+position = Vector2(1014, 216)

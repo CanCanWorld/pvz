@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://2afpqubjh43f"]
+
+[ext_resource type="Script" path="res://src/pea_bullet/pea_bullet.gd" id="1_tkq3v"]
+[ext_resource type="Texture2D" uid="uid://cwu38hi8dyuty" path="res://assets/effect/PeaBullet.png" id="1_ugps0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4g7t3"]
+
+[node name="pea_bullet" type="CharacterBody2D" groups=["bullet"]]
+script = ExtResource("1_tkq3v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-11, 0)
+texture = ExtResource("1_ugps0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4g7t3")
