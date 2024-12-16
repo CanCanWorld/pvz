@@ -5,7 +5,7 @@ const PLANT = preload("res://src/plant/plant.tscn")
 var plant_list : Array[PlantType] = [
 	# 			  代号				名称			花费		攻击力	血量		生产力	卡片冷却	生产冷却	攻击冷却
 	PlantType.new("sun_flower",		"向日葵",		50,		0,		100,	25,		1,		1,		0),
-	PlantType.new("peas_hooter",	"豌豆射手",	100,	25,		100,	0,		5,		0,		2),
+	PlantType.new("peas_hooter",	"豌豆射手",	100,	25,		100,	0,		1,		0,		2),
 	PlantType.new("wall_nut", 		"坚果墙",		50,		0,		100,	0,		15,		0,		0),
 ]
 

@@ -137,6 +137,9 @@ animations = [{
 }]
 
 [node name="zombie" type="CharacterBody2D" groups=["zombie"]]
+z_index = 40
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_n5n0a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

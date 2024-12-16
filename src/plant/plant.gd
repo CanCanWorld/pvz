@@ -1,6 +1,7 @@
 class_name Plant extends Node2D
 
 const PEA_BULLET = preload("res://src/pea_bullet/pea_bullet.tscn")
+const SUN = preload("res://src/sun/sun.tscn")
 
 @onready var plants_anim: AnimatedSprite2D = $plants_anim
 @onready var attack_timer: Timer = $attack_timer
@@ -18,16 +19,20 @@ func _process(delta: float) -> void:
 func set_plant_type(plant_type: PlantType):
 	self.plant_type = plant_type
 	plants_anim.animation = plant_type.code
-	attack_timer.wait_time = plant_type.attack_cd
-	product_timer.wait_time = plant_type.product_cd
-	attack_timer.start()
-	product_timer.start()
+	if plant_type.attack_cd != 0:
+		attack_timer.wait_time = plant_type.attack_cd
+		attack_timer.start()
+	if plant_type.product_cd != 0:
+		product_timer.wait_time = plant_type.product_cd
+		product_timer.start()
 
 
 func _on_product_timer_timeout() -> void:
 	print("生产阳光")
-	for listener in GameMain.on_sun_change_list:
-		listener.call(plant_type.product)
+	var sun : Sun = SUN.instantiate()
+	get_tree().root.add_child(sun)
+	sun.global_position = global_position
+	sun.product = plant_type.product
 
 
 func _on_attack_timer_timeout() -> void:

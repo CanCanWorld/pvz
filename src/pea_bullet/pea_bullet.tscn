@@ -6,6 +6,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_4g7t3"]
 
 [node name="pea_bullet" type="CharacterBody2D" groups=["bullet"]]
+z_index = 90
+collision_layer = 32
+collision_mask = 0
 script = ExtResource("1_tkq3v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

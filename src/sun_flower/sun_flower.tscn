@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b81eah21xyfwm"]
-
-[ext_resource type="PackedScene" uid="uid://bgq0f6devxwdy" path="res://src/plants_anim/plants_anim.tscn" id="1_8326c"]
-
-[node name="sun_flower" type="Node2D"]
-
-[node name="plants_anim" parent="." instance=ExtResource("1_8326c")]
