@@ -3,6 +3,7 @@ class_name SelectPlant extends Node2D
 @onready var plants_anim: AnimatedSprite2D = $plants_anim
 
 var plant_type: PlantType
+var card : Card
 
 func _ready() -> void:
 	pass # Replace with function body.

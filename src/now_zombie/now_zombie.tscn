@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://gnx3ctw63f6n"]
+
+[ext_resource type="Script" path="res://src/now_zombie/now_zombie.gd" id="1_a0oag"]
+
+[node name="now_zombie" type="Node2D"]
+script = ExtResource("1_a0oag")
+
+[node name="cd" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="cd" to="." method="_on_cd_timeout"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwymvudvx7wyx"]
+
+[ext_resource type="Script" path="res://src/plant/pea_shooter/pea_shooter.gd" id="1_dbsqn"]
+[ext_resource type="PackedScene" uid="uid://bgq0f6devxwdy" path="res://src/plants_anim/plants_anim.tscn" id="2_jnu58"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h67a1"]
+size = Vector2(1293, 35)
+
+[node name="pea_shooter" type="Node2D"]
+script = ExtResource("1_dbsqn")
+
+[node name="plants_anim" parent="." instance=ExtResource("2_jnu58")]
+animation = &"peas_hooter"
+frame_progress = 0.0
+
+[node name="attack_timer" type="Timer" parent="."]
+
+[node name="attack_mark" type="Marker2D" parent="."]
+position = Vector2(35, -23)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(636.5, 26.5)
+shape = SubResource("RectangleShape2D_h67a1")
+
+[connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ckb0uimtne1md"]
+[gd_scene load_steps=38 format=3 uid="uid://ckb0uimtne1md"]
 
 [ext_resource type="Script" path="res://src/zombie/zombie.gd" id="1_n5n0a"]
 [ext_resource type="Texture2D" uid="uid://dtc1bfclhpejf" path="res://assets/zombie/Zombie2_1.png" id="1_u4xkw"]
@@ -32,8 +32,6 @@
 [ext_resource type="Texture2D" uid="uid://bfg44nymgtk5y" path="res://assets/zombie/Zombie2_29.png" id="29_0x1tv"]
 [ext_resource type="Texture2D" uid="uid://bae3h4kyfoh4y" path="res://assets/zombie/Zombie2_30.png" id="30_8ajpq"]
 [ext_resource type="Texture2D" uid="uid://b7u76ob6lnvxc" path="res://assets/zombie/Zombie2_31.png" id="31_uv27c"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_am612"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tvddj"]
 animations = [{
@@ -133,8 +131,30 @@ animations = [{
 }],
 "loop": true,
 "name": &"move",
-"speed": 20.0
+"speed": 12.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uecpg"]
+size = Vector2(20, 68)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2a2ae"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kjfe3"]
+bg_color = Color(0.886275, 0.356863, 0.407843, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kqpk"]
+size = Vector2(28, 62)
 
 [node name="zombie" type="CharacterBody2D" groups=["zombie"]]
 z_index = 40
@@ -142,11 +162,39 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_n5n0a")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("WorldBoundaryShape2D_am612")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-21, 0)
 sprite_frames = SubResource("SpriteFrames_tvddj")
 animation = &"move"
 autoplay = "move"
-frame_progress = 0.074766
+frame = 9
+frame_progress = 0.86174
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(0, 26)
+shape = SubResource("RectangleShape2D_uecpg")
+
+[node name="hp_bar" type="ProgressBar" parent="."]
+offset_left = -36.0
+offset_top = 74.0
+offset_right = 37.0
+offset_bottom = 81.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/background = SubResource("StyleBoxFlat_2a2ae")
+theme_override_styles/fill = SubResource("StyleBoxFlat_kjfe3")
+step = 1.0
+value = 19.0
+show_percentage = false
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 34)
+shape = SubResource("RectangleShape2D_4kqpk")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

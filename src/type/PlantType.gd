@@ -7,8 +7,10 @@ var attack : int = 0
 var hp : int = 0
 var product : int = 0
 var cd : int = 10
-var product_cd : int = 10
-var attack_cd : int = 10
+var product_cd : float = 10
+var attack_cd : float = 10
+var resouce : Resource
+
 
 func _init(
 	code: String, 
@@ -18,8 +20,9 @@ func _init(
 	hp: int, 
 	product: int, 
 	cd: int,
-	product_cd: int,
-	attack_cd: int,
+	product_cd: float,
+	attack_cd: float,
+	resouce: Resource,
 ) -> void:
 	self.code = code
 	self.name = name
@@ -30,3 +33,4 @@ func _init(
 	self.cd = cd
 	self.product_cd = product_cd
 	self.attack_cd = attack_cd
+	self.resouce = resouce
