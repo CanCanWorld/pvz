@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 	pass
 
 func set_plant_type(plant_type: PlantType):
+	print(plant_type.code)
 	self.plant_type = plant_type
 	plants_anim.animation = plant_type.code
 	if plant_type.attack_cd != 0:

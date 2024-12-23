@@ -192,4 +192,6 @@ collision_mask = 32
 position = Vector2(1384, 294)
 shape = SubResource("RectangleShape2D_nrdti")
 
+[node name="player" type="Node2D" parent="."]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
